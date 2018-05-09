@@ -1,6 +1,10 @@
 Tünde Csapó
+Greenfox / Fulvipes / Secret
 
-(https://github.com/green-fox-academy/tundecsapo "My Greenfox Repository")
-(https://github.com/tundecsapo/git-lesson-repository "My git-lesson-repository")
-(https://github.com/tundecsapo/patchwork "Forked 'Patchwork' repository (Git-it exercise)")
-(https://github.com/green-fox-academy/secret-syllabus "Fulvipes Cohort - Secret: Syllabus")
+[My Greenfox Repository](https://github.com/green-fox-academy/tundecsapo "My Greenfox Repository")
+
+[My git-lesson-repository](https://github.com/tundecsapo/git-lesson-repository "My git-lesson-repository")
+
+[Forked 'Patchwork' repository (Git-it exercise)](https://github.com/tundecsapo/patchwork "Git-it exercise")
+
+[Fulvipes Cohort - Secret: Syllabus](https://github.com/green-fox-academy/secret-syllabus "Fulvipes Cohort - Secret: Syllabus")
