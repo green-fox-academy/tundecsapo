@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0 auto;
+}
+
+table {
+	width: 100%;
+}
+
+#mainMenu {
+	background-color: #EDEDED;
+	padding: 0 10px;
+	width: 20%;
+	min-width: auto;
+}
+
+#pageCont {
+	background-color: white;
+	background-color: pink;
+	width: 80%;
+}
+
+#wikiLogo {
+	height: 160px;
+	width: auto;
+}
+
+ul {
+	list-style-type: none;
+	float: left;
+}
+
+li {
+	display: inline-block;
+		
+
+}
+
+.rightMenu {
+	text-align: right;
+	padding-right: 0;
+	}
+
+div {
+	}
