@@ -1,0 +1,138 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #1D976C;
+    background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);  
+    background: linear-gradient(to right, #93F9B9, #1D976C); 
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    color: #046d48;
+}
+
+.pages {
+    padding: 6% 0px;
+    height: 100%;
+}
+
+.slides {
+    background-color: white;
+    height: 640px;
+    min-width: 600px;
+    margin: 0px 10%;
+    border: 2px solid #046d48;
+    border-radius: 15px;
+    padding: 0 7%;
+}
+
+button {
+    height: 50px;
+    width: 198px;
+    background-color: #046d48;
+    color: white;
+    font-size: 24px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+}
+
+button:hover {
+    background-color: #1D976C;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    color: #046d48;
+    background-color: rgba(127,97,94, 0.3);
+	border: 2px solid #fff;
+}
+
+h1 {
+    font-size:48px;
+    padding-bottom: 40px;
+}
+
+h2 {
+    font-size:40px;
+    padding-bottom: 40px;
+}
+
+h3 {
+    font-size:32px;
+}
+
+.mainCont {
+    height: 76%; 
+    padding-top: 40px
+}
+
+.buttAndIcon {
+    height: 100px;
+}
+
+td {
+    width: 33%;
+}
+
+table {
+    width: 100%;
+}
+
+/* pictures */
+img {
+    height: auto;
+}
+
+#firstDayPic {
+    width: 45%; 
+}
+
+#weekendPic { 
+    width: 75%; 
+}
+
+#laughEmoji {
+    height: 70px;
+    width: auto;
+}
+
+#tcsapoGithub {
+    width: 67%; 
+}
+
+.greenfoxLogo {
+    width: 100px;
+    float: right;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.pics {
+    min-width: 500px;
+    box-shadow: 0 0 5px black;
+}
+
+.diamonds {
+    width: 100%;
+    box-shadow: 0 0 5px black;
+}
+
+/* ul and li */
+ul {
+    text-align: left;
+}
+
+li {
+    font-size: 32px;
+    margin: 14px;
+    color: black;
+}
+.sixthSubUl li {
+    margin-left: 40px; 
+    font-size: 25px;
+}
