@@ -9,7 +9,7 @@ let lineSpace: string = "";
 let fullLine: string = "";
 
 for (let i: number = 0; i < lineCount; i++){
-    if(i === 0 || i === lineCount-1){
+    if (i === 0 || i === lineCount-1){
         char = "";
         let k: number = 1;
         do {
@@ -18,7 +18,7 @@ for (let i: number = 0; i < lineCount; i++){
         } while(k < lineCount)
         console.log(char);
     }
-    else if(i === lineCount-2){
+    else if (i === lineCount-2){
         char = "%";
         lineSpace = "";
         let j: number=2;
@@ -28,15 +28,18 @@ for (let i: number = 0; i < lineCount; i++){
         } while(j < lineCount-1)
         console.log(char + lineSpace + char);
     }
-    else{
+    else {
         char = "%";
         lineSpace = "";
         for (let k: number = 0; k < lineCount-1; k++){
-            if (k == i || k == 0 || k == lineCount-2){fullLine += char;}
-            else {fullLine += " "};
+            if (k == i || k == 0 || k == lineCount-2){
+                fullLine += char;
+            }
+            else {
+                fullLine += " ";
+            }
         }
         console.log(fullLine);
         fullLine = "";
     }
-    
 }
