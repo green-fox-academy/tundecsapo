@@ -1,53 +1,42 @@
 'use strict';
-
 export {};
 
 let lineCount: number = 6;
-
 // Write a program that draws a square 
 
 let char: string = "";
 let lineSpace: string = "";
+let fullLine: string = "";
 
-for (let i: number=lineCount; i>0; i--){
-    if(i===1 || i===lineCount){
+for (let i: number = 0; i < lineCount; i++){
+    if(i === 0 || i === lineCount-1){
         char = "";
-        let k: number=1;
-        do{
+        let k: number = 1;
+        do {
             char += "%";
             k++;
-        }while(k<lineCount)
+        } while(k < lineCount)
         console.log(char);
     }
-    else if(i===2){
+    else if(i === lineCount-2){
         char = "%";
         lineSpace = "";
         let j: number=2;
-        do{
+        do {
             lineSpace += " ";
             j++;
-        }while(j<lineCount-1)
+        } while(j < lineCount-1)
         console.log(char + lineSpace + char);
     }
     else{
         char = "%";
         lineSpace = "";
-        /*let l: number=1;
-            do{
-                lineSpace += " ";
-                l++;
-            }while(l<lineCount-2)
-            console.log(char + lineSpace + char);*/
-            console.log("-----");
+        for (let k: number = 0; k < lineCount-1; k++){
+            if (k == i || k == 0 || k == lineCount-2){fullLine += char;}
+            else {fullLine += " "};
+        }
+        console.log(fullLine);
+        fullLine = "";
     }
+    
 }
-
-
-
-
-// %%%%%  0  %sign  space 
-// %%  %  1  1 2 5  3 4
-// % % %  2  1 3 5  2 4
-// %  %%  3  1 4 5  2 3
-// %   %  4  1   5  2 3 4 
-// %%%%%  5
