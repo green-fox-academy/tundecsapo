@@ -1,7 +1,7 @@
 'use strict';
 export{};
 
-let lineCount: number = 6;
+let lineCount: number = 4;
 let arr: number[][] = [];
 
 for (let i: number = 0; i < lineCount; i++){
@@ -18,3 +18,14 @@ for (let i: number = 0; i < lineCount; i++){
 }
 
 console.log(arr);
+
+// if I want to print the element of the array like this:
+
+//    0 0 0 1
+//    0 0 1 0
+//    0 1 0 0
+//    1 0 0 0
+
+//for (let k: number = 0; k < arr.length; k++){
+//    console.log(arr[k].join(' '));
+//    }
