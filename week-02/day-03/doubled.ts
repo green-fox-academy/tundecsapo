@@ -23,7 +23,7 @@ function writeToFile(file: string, newText: string) {
   }
 }
 
-function checkDuplicates(doubledText: string) {
+function checkDuplicate(doubledText: string) {
   let content: string = readFromFile(doubledText);
   let newStr: string = '';
   for (let i: number = 0; i < content.length; i+=2) {
@@ -31,4 +31,4 @@ function checkDuplicates(doubledText: string) {
   }
   writeToFile(doubledText, newStr);
 }
-checkDuplicates('duplicated-chars.txt');
+checkDuplicate('duplicated-chars.txt');
