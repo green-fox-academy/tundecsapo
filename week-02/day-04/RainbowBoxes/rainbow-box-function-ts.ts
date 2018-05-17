@@ -3,7 +3,7 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-function drawSquare(side: number, color: string) {
+function drawRainbow(side: number, color: string) {
   for (let i: number = 600; i >= side; i-=10) {
     let chars = '0123456789ABCDEF';
     let randomColor = '#';
@@ -18,4 +18,4 @@ function drawSquare(side: number, color: string) {
     ctx.fillRect(300 - i/2, 200-i/2, i, i);
   }
 }
-drawSquare(50, '#ef629f');
+drawRainbow(50, '#ef629f');
