@@ -3,10 +3,15 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-function drawPurpleSteps(side: number) {
-  for (let i: number = 0; i < 400; i += side){  
-    ctx.fillStyle = 'purple';
-    ctx.fillRect(i, i, side, side);
-  }
+let side: number = 10;
+
+//Corrected solution
+function drawPurpleSteps(start: number, side: number) {
+  ctx.fillStyle = '#aa42f4';
+  ctx.fillRect(start, start, side, side);
+  ctx.strokeRect(start, start, side, side);
 }
-drawPurpleSteps(10);
+
+for (let i: number = 0; i < 400; i += side) {  
+  drawPurpleSteps(i, side);
+}
