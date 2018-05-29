@@ -1,10 +1,9 @@
 'use strict';
 
-import {Person} from './greenFox_person';
-import {Student} from './greenFox_student';
-import {Mentor} from './greenFox_mentor';
-import {Sponsor} from './greenFox_sponsor';
-import {Cohort} from './greenFox_cohort';
+import {Student} from './greenFox';
+import {Mentor} from './greenFox';
+import {Sponsor} from './greenFox';
+import {Cohort} from './greenFox';
 
 let people = [];
 
@@ -18,7 +17,7 @@ let student = new Student();
 people.push(student);
 let gandhi = new Mentor('Gandhi', 148, 'male', 'senior');
 people.push(gandhi);
-let mentor = new Mentor(); //it didn't have let
+mentor = new Mentor();
 people.push(mentor);
 let sponsor = new Sponsor();
 let elon = new Sponsor('Elon Musk', 46, 'male', 'SpaceX');
@@ -38,7 +37,7 @@ for (let person of people) {
   person.getGoal();
 }
 
-let awesome = new Cohort('AWESOME');
+awesome = new Cohort('AWESOME');
 awesome.addStudent(student);
 awesome.addStudent(john);
 awesome.addMentor(mentor);
