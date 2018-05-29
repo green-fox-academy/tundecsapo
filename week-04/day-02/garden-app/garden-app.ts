@@ -69,11 +69,11 @@ let orange = new Tree('orange');
 plants.push(orange);
 
 //show how the garden looks like
-console.log(orange.showStatus());
+orange.showStatus();
 //water the garden twice:
   //water the garden with 40 and show the state of garden
-console.log(yellow.watering(40));
+yellow.watering(40);
   //water the garden with 70 and show the state of garden
-console.log(yellow.watering(70));
+yellow.watering(70);
 
-console.log(plants);
+
