@@ -1,10 +1,12 @@
 'use strict';
 
+import {Flyable} from './flyable';
+
 interface LayEggs {
   layEggs: string;
 }
 
-abstract class Animal {
+export abstract class Animal {
   name: string;
   age: number;
   legs: number;
@@ -52,11 +54,14 @@ class Reptile extends Animal implements LayEggs {
   };  
 }
 
-class Bird extends Animal implements LayEggs {
+class Bird extends Animal implements LayEggs, Flyable {
   covering: string;
   hasWings: boolean;
   hasBeakAndBipedalism: boolean;
   layEggs: string;
+  land(): void {};
+  fly(): void {};
+  takeOff(): void {};
       
   constructor (name: string) {
     super();
@@ -69,7 +74,7 @@ class Bird extends Animal implements LayEggs {
 
   breed(): string {
     return this.layEggs;
-  }; 
+  } 
 }
 
 let reptile = new Reptile("Crocodile");
