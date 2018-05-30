@@ -1,8 +1,6 @@
 'use strict';
 
-import {Animal} from './zoo';
-
-interface Flyable {
+export interface Flyable {
   land(): void;
   fly(): void;
   takeOff(): void;    
@@ -20,10 +18,4 @@ class Helicopter extends Vehicle implements Flyable {
   takeOff(): void {}; 
 }
 
-class Bird extends Animal implements Flyable {
-  land(): void {};
-  fly(): void {};
-  takeOff(): void {};
-  breed(): string {return 'something'};
-}
-
+//you can find the task with the Bird Class in the Zoo exercise
