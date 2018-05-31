@@ -13,7 +13,7 @@ test('simple sum number output', t => {
 test('test empty array', t => {
   let emptyList: number[] = []; 
   let testList = new List();
-  t.equal(testList.sum(emptyList), 0);
+  t.equal(testList.sum(emptyList), 'This array is empty. This method only works for list of numbers.');
   t.end();
 })
 
@@ -34,13 +34,13 @@ test('test multiple elem array', t => {
 test('test "null" array', t => {
   let nullElemList: number[] = [null]; 
   let testList = new List();
-  t.equal(testList.sum(nullElemList), 0);
+  t.equal(testList.sum(nullElemList), 'This method only works for list of numbers.');
   t.end();
 })
 
 test('test string array', t => {
   let stringElemList: string[] = ['string', 'anotherstring']; 
   let testList = new List();
-  t.equal(testList.sum(stringElemList), 0);
+  t.equal(testList.sum(stringElemList), 'This method only works for list of numbers.');
   t.end();
 })
