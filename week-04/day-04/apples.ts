@@ -1,10 +1,7 @@
 'use strict';
 
-class Apple {
+export class Apple {
   getApple(): string {
     return 'apple';    
   }   
 }
-
-let apple = new Apple();
-export {apple};
