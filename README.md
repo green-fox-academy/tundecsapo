@@ -8,8 +8,7 @@
 
 [Exercise Week-01/Day-03: My git-lesson-repository](https://github.com/tundecsapo/git-lesson-repository "My git-lesson-repository")
 
-[Exercise Week-04/Day-05: My TODO Application] 
-(https://github.com/tundecsapo/todo-app "My TODO Application")
+[Exercise Week-04/Day-05: My TODO Application](https://github.com/tundecsapo/todo-app "My TODO Application")
 
 [Exercise Week-01/Day-03: Forked 'Patchwork' repository (Git-it exercise)](https://github.com/tundecsapo/patchwork "Git-it exercise")
 
