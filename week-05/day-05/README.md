@@ -1,1 +1,1 @@
-[My TODO App](https://github.com/tundecsapo/todo-app "My TODO App")
+[My Wanderer Game](https://github.com/tundecsapo/wanderer-typescript "My Wanderer Game")
