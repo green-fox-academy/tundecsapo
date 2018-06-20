@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercise: Fancy Table</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="fancy_table.style.css">
+</head>
+<body>
+  <table>
+    <tr>
+      <th class="firstcol" id="lefttop">Month</th>
+      <th class="seccol" id="righttop">Sales</th>
+    </tr>
+    <tr class="odd">
+      <td class="firstcol">January</td>
+      <td class="sales" data-cuurency="$">50,000</td>
+    </tr>
+    <tr class="even lines">
+      <td class="firstcol">February</td>
+      <td class="sales" data-cuurency="$">10,000</td>
+    </tr>
+    <tr class="odd lines">
+      <td class="firstcol">March</td>
+      <td class="sales" data-cuurency="$">85,000</td>
+    </tr>
+    <tr class="even lines">
+      <td class="firstcol">April</td>
+      <td class="sales" data-cuurency="$">56,000</td>
+    </tr>
+    <tr class="odd lines final">
+      <td class="firstcol" id="leftbott">May</td>
+      <td class="sales" data-cuurency="$" id="rightbott">98,000</td>
+    </tr>
+  </table>
+  <script>
+    let sales = document.getElementsByClassName('sales');    
+    for (let i = 0; i < sales.length; i++) {
+      sales[i].textContent = sales[i].getAttribute('data-cuurency') + ' ' + sales[i].textContent; 
+    }
+  </script>
+</body>
+</html>
