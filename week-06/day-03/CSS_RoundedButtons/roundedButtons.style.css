@@ -1,0 +1,42 @@
+body {
+  background-color: rgb(47, 48, 96);  
+}
+
+.container {
+  height: 500px;
+  width: 50%;  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+button {
+  position: relative; 
+  font-size: 20px;
+  line-height: 60px;
+  width: 200px;
+  border-radius: 7px;
+  outline: none;
+}
+
+#blue {
+  background-color: rgb(66, 96, 160);
+}
+
+#blue:active {
+  background-color: rgb(66, 96, 160);
+}
+  
+#blue:hover {
+  background-color: rgb(66, 96, 160);
+}
+
+#green {
+  background-color: rgb(26, 170, 87);
+}
+
+#red {
+  background-color: rgb(210, 65, 49);
+}
