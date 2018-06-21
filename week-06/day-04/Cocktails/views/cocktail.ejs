@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Todos</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Condensed:300,400,700" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Cocktails</h1>
+    <ul class="container">
+      <li><a href='/'>All</a></li>  
+      <% alcohols.forEach(function(alcohol){ %>
+      <li><a href='/?alcohol=<%= alcohol %>'><%= alcohol %></a></li>
+      <% }); %>
+    </ul>
+    <table>
+      <tr>
+        <th class="firstcol" id="lefttop">Name</th>
+        <th id="righttop">Price</th>
+      </tr>
+      <% cocktails.forEach(function(cocktail){ %>
+        <tr>
+          <td class="firstcol"><div class="drink"><span class='cocktailName'><%= cocktail.name %></span>
+            <span><%= cocktail.alcoholic %></span>
+            <br><%= cocktail.contains %></div></td>
+          <td class="price"><%= cocktail.price %></td>
+        </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>

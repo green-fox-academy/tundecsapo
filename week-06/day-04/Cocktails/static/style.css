@@ -1,0 +1,82 @@
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'Encode Sans Condensed', sans-serif;
+  -moz-background: -moz-linear-gradient(top,(rgb(255, 255, 255) 0%, rgb(111, 188, 251) 100%));
+  -webkit-background: -webkit-linear-gradient(top, rgb(255, 255, 255) 0%, rgb(111, 188, 251) 100%);
+  background: linear-gradient(rgb(255, 255, 255), rgb(111, 188, 251)); 
+}
+h1, ul {
+  padding: 0 20%;
+}
+
+td {
+  background-color: #fff;
+  border-top: 1px solid  rgb(158, 167, 175);
+}
+
+.cocktailName {
+  font-weight: 700;    
+}
+
+td, th {
+  width: 30%;
+  min-width: 200px;
+  padding: 0 20px;
+}
+  
+th {
+  background-color: rgb(27, 30, 36);
+  text-align: center;
+  font-weight: 400;
+  color: rgb( 220, 220, 220);
+  border-bottom: 4px solid  rgb(158, 167, 175);
+  font-size: 24px;
+  padding: 12px 0;
+}
+  
+.price {
+  text-align: center;
+  font-weight: 700;  
+}
+
+.price:after {
+  content: " Ft";
+}
+
+.drink {
+  padding: 12px 0;
+}
+  
+table {
+  padding: 0 20%;
+  margin: 0px auto;  
+  border-collapse: separate;
+  border-spacing: 0;
+}
+  
+.firstcol {
+  border-right: 1px solid rgb(158, 167, 175);;
+}
+  
+#lefttop {
+  border-radius: 5px 0 0 0;
+}
+  
+#righttop {
+  border-radius: 0 5px 0 0;
+}
+
+li {
+  list-style: none;
+  position: relative;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
