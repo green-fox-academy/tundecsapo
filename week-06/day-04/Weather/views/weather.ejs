@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Weather Forecast</h1>
+    <% forecast.forEach(function(cityForecast){ %>
+    <a href="/cities/<%= cityForecast.city %>">
+      <div class="weatherCard container">
+        <div class="location"><span class="city"><%= cityForecast.city %></span><br><%= cityForecast.location %></div>
+        <div class="tempPic container"><span class="temp"><%= cityForecast.weather[0].temp %></span><span><img class="icons" src="/static/<%= cityForecast.weather[0].icon %>.png"></span></div>
+      </div>
+    </a>      
+    <% }); %>
+  </body>
+</html>

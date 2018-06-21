@@ -1,0 +1,180 @@
+body {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: rgb(52, 73, 94);
+  background: #3D7EAA;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFE47A, #3D7EAA);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFE47A, #3D7EAA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.weatherCard {  
+  background-color: #fff;  
+  max-width: 35%;
+  min-width: 360px;
+  height: 160px;
+  align-items: center;
+  margin: 20px auto;
+  padding: 0 20px;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.weatherCard:hover {
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: tomato;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.location {
+  position: relative;  
+  flex: 1;  
+}
+
+.tempPic {
+  position: relative;  
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.temp {
+  position: relative;
+  font-size: 20px;  
+}
+
+.temp:after {
+  content: '°C';  
+}
+
+.icons {
+  position: relative;  
+  width: 150px;
+  height: 150px;  
+}
+
+a {
+  text-decoration: none;
+  color: rgb(52, 73, 94); 
+}
+
+.city, .temp {
+  font-size: 28px;
+  font-weight: 700;  
+}
+
+h1 {
+  font-size: 44px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+/*Additional style for city page*/
+h2 {
+  color: white;  
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.contain {
+  display: flex;
+}
+ 
+.days {
+  height: 350px;
+  width: 80%;
+  margin: 20px auto;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.day {
+  position: relative;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;  
+  width: 13%;
+  min-width: 130px;
+  height: 300px;
+  padding: 0 20px;
+  border-radius: 7px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 15px;
+}
+  
+div.day:hover {
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: tomato;
+}
+  
+.icon {
+  width: 150px;
+  height: 150px;  
+}
+
+.icon, .tempr, .message {
+  position: relative;
+  flex: 1;  
+}
+  
+.tempr {
+  font-size: 20px;  
+}
+  
+.tempr:after {
+  content: '°C';  
+}
+  
+#butt {
+  color: rgb(213, 220, 240);
+  background-color: #3d7eaa;
+  border: 0;
+  font-size: 16px;
+  line-height: 40px;
+  width: 150px;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+  
+#butt:active {
+  background-color: #285472;
+  color: tomato;
+}
+    
+#butt:hover {
+  background-color: #296b99;
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (max-width: 1085px) {
+  .days {
+    min-width: 600px;
+    height: 100%;
+    margin: 20px auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  
+  .day {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;  
+    width: 370px;
+    height: 170px;
+    padding: 0 20px;
+    border-radius: 7px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 15px;
+  }
+}

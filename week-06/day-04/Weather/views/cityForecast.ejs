@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= city %> - Weather Forecast</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  </head>
+  <body>
+    <h1><%= city %></h1>
+    <h2>Weather Forecast</h2>
+    <div class="days contain">
+    <% cityForec.weather.forEach(function(day){ %>
+      <div class="day contain">
+        <div><img class="icon" src="/static/<%= day.icon %>.png"></div>  
+        <div class="tempr"><%= day.temp %></div>
+        <div class="message"><%= day.message %></div>
+      </div>
+    <% }); %>
+    </div>
+    <a href="/"><button id="butt">Other cities</button></a>
+  </body>
+</html>
