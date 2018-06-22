@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background: rgb(168, 168, 168);
+  background: -webkit-linear-gradient(to right, rgb(168, 168, 168) 0%, rgb(245, 245, 245) 40%,rgb(245, 245, 245) 60%, rgb(168, 168, 168) 100%);
+  background: linear-gradient(to right, rgb(168, 168, 168) 0%, rgb(245, 245, 245) 40%, rgb(245, 245, 245) 60%, rgb(168, 168, 168) 100%);   
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.slider {
+  margin: 10% auto 20px auto; 
+  width: 800px;
+  height: 360px;
+  background-color: white; 
+  /*
+  display: inline-block; 
+  white-space: nowrap;*/
+  flex-direction: row;
+  justify-content: flex-start;
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: rgb(168, 168, 168);
+  background: -webkit-linear-gradient(top, white, rgb(197, 197, 197));
+  background: linear-gradient(top, white, rgb(197, 197, 197));   
+}
+
+.leftArrow {
+  position: relative;
+  flex: 1;  
+
+}
+
+.rightArrow {
+  position: relative;
+  flex: 1;  
+
+}
+
+.image {
+  position: relative;
+  flex: 8;
+  max-width:100%;
+  max-height:100%;
+  height: auto;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;  
+  flex-direction: column;
+  justify-content: flex-end; 
+  color: white;
+}
+
+.description {
+  position: relative;
+  min-width: 150px;
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 12px;   
+}
+
+img {
+  width: 100%;
+    
+}
+
+.fas {
+  font-size: 64px; 
+  color: #9b9b9b;
+  text-shadow: 0 1px 5px #000000;
+}
+
+.fas:hover {
+  color: #c7c7c7;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  margin-bottom: 10px;  
+}
+
+.story {
+  font-size: 14px;
+  line-height: 14px;  
+  color: #9b9b9b;
+}
+
+.arrows {
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;  
+}
+
+.thumbnails {
+  height: 100px;  
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 800px; 
+  margin: 0 auto; 
+}
+
+.thumbs {
+  margin: 3px;  
+  width: 54px;
+  height: 54px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;   
+}
+
+.thumBack {
+  margin: 7px;  
+  position: relative;
+  width: 60px;
+  height: 60px;
+  box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.21), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: white;
+  background: -webkit-linear-gradient(top, white, rgb(223, 223, 223));
+  background: linear-gradient(top, white, rgb(223, 223, 223)); 
+  border-radius: 5px;   
+}
+
+.thumbs:hover {
+  width: 74px;
+  height: 74px;
+}
+  
+.thumBack:hover {
+  width: 80px;
+  height: 80px;
+}

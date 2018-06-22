@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gallery Project</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+</head>
+<body>
+  <div class="slider container">
+    <div class="arrows leftArrow container"><i class="fas fa-caret-left"></i>
+    </div>
+    <div class="image container" style="background-image: url('/static/images/<%= newyork[5].image %>.jpg');">
+      <div class="description">
+        <p class="title"><%= newyork[5].title %></p>
+        <p class="story"><%= newyork[5].story %></p>  
+      </div>    
+    </div>
+    <div class="arrows rightArrow container"><i class="fas fa-caret-right"></i>
+    </div>
+  </div>
+  <div class="thumbnails container">
+    <% newyork.forEach(function(ny){ %>
+    <div class="thumBack">      
+      <div class="thumbs" style="background-image: url('/static/images/<%= ny.image %>.jpg');"></div>
+    </div>
+    <% }); %> 
+  </div>
+  <script>
+/*
+  let button = document.querySelector('button');
+
+button.onclick = function() { 
+  if (document.body.classList.contains('party') === true) {
+    document.body.classList.remove('party');      
+  } else {
+    document.body.classList.add('party');  
+  }
+};*/
+  </script>
+</body>
+</html>
