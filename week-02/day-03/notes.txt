@@ -1,0 +1,8 @@
+TYPE OF ERRORS
+
+- syntax error
+- reference error
+- type error
+- compile error
+- runtime error: running out of memory etc.
+- logical error: valid code, the compile understands - it can't be detected automatically

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Classes</title>
+  </head>
+  <body>
+    <h1>Classes</h1>
+    <ul>
+      <% classes.forEach((className) => { %>
+        <li>
+          <a href="/classes/<%= className %>">
+            <%= className %>
+          </a>
+        </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

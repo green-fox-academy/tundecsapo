@@ -1,0 +1,171 @@
+REAL ESTATE DATABASE
+--------------------
+
+/*Properties
+----------
+ID | Address | Seller_id | Price | Available | Date posted
+
+1  | A66     | 1 | 100M  | 1         | 2018-01-01
+2  | A67     | 2 | 100M  | 1         | 2018-01-01
+3  | A66     | 3 | 100M  | 1         | 2018-01-01
+4  | A66     | 3 | 10M  | 1         | 2018-01-01*/
+
+//Composite key
+Properties
+----------
+| Street   | Num | Seller_id | Price | Available | Date posted
+
+| Andrassy | 1   | 1 | 100M  | 1         | 2018-01-01
+| Andrassy | 2   | 2 | 100M  | 1         | 2018-01-01
+| Andrassy | 3   | 3 | 100M  | 1         | 2018-01-01
+| Andrassy | 4   | 3 | 10M  | 1         | 2018-01-01
+| Kossuth  | 4   | 3 | 10M  | 1         | 2018-01-01
+//if you want to delete a seller, you can remove the references in other table as well
+
+//We have to identify each row uniquely
+//Goal is to reduce redundancy
+
+Sellers
+-------
+ID | Name | Phone | Email
+1  | Gawker | 5678 | null
+2  | Greenfox | 2675758 | null
+3  | Boom | 4526 | null
+
+Properties_cleaning
+-------------------
+prop_ID | cleaning_id
+1       | 1 
+1       ! 2
+
+Cleaning
+--------
+ID | Service Name
+1  | Awesome Cleaning Kft.
+2  | Clear KFt.
+
+wuitting SQL:
+-------------
+quit
+
+
+CREATING A DATABASE
+-------------------
+CREATE DATABASE test3;
+
+
+SHOWING LIST OF DATABASES
+-------------------------
+SHOW DATABASES;
+
+
+selecting databases to use
+-------------------
+USE test3 //test3 is the name of the database
+then:
+SELECT DATABASE();
+
+destroying database
+-------------------
+DROP DATABASE IF EXIST test3 //test3 is gone from databases
+
+
+counting how many items do we have with a specific value
+---------------------------------------------------------
+SELECT COUNT(*) IN licence_plates WHERE year = 2001;
+
+creating tables
+---------------
+CREATE TABLE student(
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+email VARCHAR(60) NULL,
+street VARCHAR(50) NOT NULL,
+city VARCHAR(40) NOT NULL,
+state CHAR(2) NOT NULL DEFAULT "PA",
+zip MEDIUMINT UNSUGNED NOT NULL,
+phone VARCHAR(20) NOT NULL,
+birth_date DATE NOT NULL,
+sex ENUM('M', 'F') NOT NULL,
+date_entered TIMESTAMP,
+lunch_cost FLOAT NULL,
+student_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY);
+
+show tables;
+
+create database test3;
+
+use test3;
+
+describe student; //table
+
+current date: NOW();
+
+Insert into student value
+('Dale', 'Cooper', 'e-mail', blabla...)
+
+CREATE TABLE class(
+  name VARCHAR(20) NOT NULL,
+  class_id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,    
+)
+
+ALTER TABLE test
+ADD maxscore INT NOT NULL AFTER type;
+
+INSERT INTO test VALUES
+('2014-8-25', 'Q', 15, 1, Null),
+(...........);
+
+changing name of a column:
+ALTER TABLE score CHANGE event-id test_id
+INT UNSIGNED NOT NULL;
+
+RENAME TABLE
+absence to absences,
+score to scores;
+
+Selecting from and joining multiple tables
+-----------------------------------------
+SELECT student_id, date, score, maxscore
+FROM tests, scores
+WHERE date='2014-08-25'
+AND tests.test_id = scores.test_id;
+
+SELECT scores.student_id, tests.date, scores.score, tests.maxscore,
+FROM tests, scores
+WHERE date='2014-08-25'
+AND tests.test_id=scores.test_id;
+
+
+joining 3 tables
+----------------
+SELECT CONCAT(students.first_name, " ", students.last_name) AS Name, 
+tests.date, scores.score, tests.maxscore
+FROM tests, scores, students
+WHERE date='2014-08-25'
+AND tests.test_id = scores.test_id
+AND scores.student_id = students.student_id;
+
+
+LEFT-join
+SELECT students.student_id,
+CONCAT(students.first_name, " ", students.last_name) AS Name,
+COUNT(absences.date) AS absences
+FROM students LEFT JOIN absences
+ON students.student_id = absences.student_id
+GROUP BY student.student_id;
+
+Inner join
+----------
+SELECT students.first_name, students.last_name, scores.test_id, scores.score
+FROM students
+INNER JOIN scores 
+ON students.student_id = scores.student_id
+WHERE scores.score <= 15
+ORDER BY scores.test; 
+
+
+
+
+
+

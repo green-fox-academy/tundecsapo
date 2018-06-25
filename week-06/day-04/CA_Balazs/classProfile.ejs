@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%= className %></title>
+  </head>
+  <body>
+    <a href="/">back</a>
+    <div>
+      <a href="/classes/<%= className %>?sortBy=asc">sort</a>
+      <a href="/classes/<%= className %>">basic</a>
+    </div>
+
+    <h1><%= className %></h1>
+    <ul>
+      <% students.forEach((student) => { %>
+        <li>
+          <a href="https://github.com/<%= student.github %>" target="_blank">
+            <%= student.github %>
+          </a>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

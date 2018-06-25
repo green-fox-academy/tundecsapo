@@ -1,0 +1,9 @@
+{
+  "key": "value", //we have to use double quotes
+  "number": 22,
+  "keyobject": {
+    "other": ["string", "sdsd"]  
+  },
+  "boolean": false,
+  "nullkey": null //dont put comma into the last line
+}
