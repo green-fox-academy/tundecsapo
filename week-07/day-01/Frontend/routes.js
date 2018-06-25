@@ -53,9 +53,6 @@ app.get('/appenda/:appendable', (req, res) => {
 });
 
 app.post('/dountil/:what', (req, res) => {
-  console.log(req.body);
-  console.log(req.params);
-
   let num = req.body.until;
   let resultSum = 0;
   let resultFact = 1;
