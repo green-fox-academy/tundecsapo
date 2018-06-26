@@ -1,0 +1,37 @@
+Callbacks
+---------
+setTimeout
+setInterval
+clearTimeout
+clearInterval
+
+
+/*
+function add(a, b) {return a + b}
+
+let addition = add;
+typeof addition //function
+
+addition(3, 4); //7
+
+let add = function(a, b) {return a + b;}
+
+add; //[Function: add]
+
+add(2, 4); //7
+
+function execute(otherFunction) {console.log(otherFunction(1, 2))} 
+
+execute(add); //3
+
+function multiply(a, b) {return a * b;}
+
+execute(multiply); //2
+
+let addtion = (a, b) => a + b;
+execute((a, b) => a - b); //I can't reference this function because there is no names referenced
+
+
+
+GOOD BOOKS ABOUT JS:
+'You don't know JS.'
