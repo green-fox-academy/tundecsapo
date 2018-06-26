@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  background-color: grey;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;  
+  width: 1000px;
+  height: 800px;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.list {
+  width: 500px; 
+  position: relative;
+}
