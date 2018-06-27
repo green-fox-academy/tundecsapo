@@ -37,6 +37,21 @@ app.get('/api/books/titles', (req, res) => {
   });
 });
 
+app.get('/api/books/catalog', (req, res) => {
+  let sqldata = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast, author, category, publisher WHERE book_mast.aut_id = author.aut_id AND book_mast.cate_id = category.cate_id AND book_mast.pub_id = publisher.pub_id;';
+     
+  conn.query(sqldata, (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return;  
+    }  
+    res.json({
+      books: rows,  
+    });
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`The server is app and running on port ${PORT}`);  
 })

@@ -8,7 +8,7 @@ body {
   font-family: 'Quicksand', sans-serif;
   text-align: center;
   background: #0F2027;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0f2027);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
@@ -23,4 +23,58 @@ li {
 .booklist {
   margin: 50px auto;
   width: 600px;  
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.buttons {
+  margin: 25px auto 0 auto;
+  width: 600px;
+  text-align: center;
+}
+
+button {
+  background-color: white;
+  border-style: none;
+  color: #2C5364;
+  border-radius: 5px;
+  width: 120px;
+  height: 32px;
+  font-weight: 700;
+  margin: 5px;
+  outline:0;
+}
+
+button:hover {
+  background-color: rgb(189, 213, 223);
+  color: rgb(2, 84, 119);
+  outline:0;
+}
+
+button:active {
+  background-color: rgb(203, 238, 252);
+  color: rgb(3, 145, 206);
+  outline:0;
+}
+
+table {
+  margin: 0 auto;
+}
+
+th {
+  border: 1px solid white;
+  background-color: rgba(15, 32, 39, 0.5);
+  width: 160px;
+  height: 30px;
+}
+
+td {
+  font-size: 14px;
+  padding: 10px 5px;
+  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
 }
