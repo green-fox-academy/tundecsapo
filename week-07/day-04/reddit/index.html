@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reddit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div class='topmenu container'>
+      <div class="logo">
+        <img src="/static/redditlogo.png" alt="Reddit logo">
+      </div>
+      <div class="sorting">
+        <select class="inputs">
+          <option value="home">Home</option>
+          <option value="popular">Popular</option>
+          <option value="all">All</option>
+          <option value="originalcont">Original content</option>
+          <option value="usettings">User settings</option>
+          <option value="messages">Messages</option>
+          <option value="createpost">Create a post</option>
+        </select>
+      </div> 
+      <div class='search'>
+        <input class="searcher" type="text" name="search" placeholder="Search Reddit">
+      </div>
+      <div class="profilesec"><img src="/static/profilsec.jpg" alt="Profile section placeholder" height="42" width="42"></div>
+    </div> 
+  </header>
+  <div class="selector container">
+    <div class="sorters"><p>View</p></div>
+    <div class="sorters"><p>Sort</p></div>
+  </div>
+  <p class="message"></p>
+  <div class="main container">
+    <div class="mainCont">  
+      <div class="fields"><input class="inputs titleInput" type="text" name="text"></div>
+      <div class="fields"><input class="inputs descrInput" type="text" name="text"></div>
+      <div class="fields"><input class="btn button sendButt" type="submit" value="Send"></div>
+      <div class="feed"></div>
+    </div>
+    <div class="sidebar">
+      <img id="sidebar" src="/static/sidebar.jpg" alt="Placeholder sidebar">
+    </div>
+  </div>
+  <script src="/assets/reddit.js"></script>
+</body>
+</html>
