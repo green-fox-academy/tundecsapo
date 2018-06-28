@@ -37,7 +37,7 @@ li {
   text-align: center;
 }
 
-button {
+.button {
   background-color: white;
   border-style: none;
   color: #2C5364;
@@ -49,13 +49,13 @@ button {
   outline:0;
 }
 
-button:hover {
+.button:hover {
   background-color: rgb(189, 213, 223);
   color: rgb(2, 84, 119);
   outline:0;
 }
 
-button:active {
+.button:active {
   background-color: rgb(203, 238, 252);
   color: rgb(3, 145, 206);
   outline:0;
@@ -77,4 +77,39 @@ td {
   padding: 10px 5px;
   border: 1px solid white;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter {
+  margin: 20px auto 0px auto;
+}
+
+.inputs {
+  background-color: rgba(15, 32, 39, 0.5);
+  height: 30px;
+  width: 150px;
+  color: white;
+  border: 1px solid white;
+  padding: 0;
+  outline:0;
+}
+
+#send {
+  background-color: rgba(15, 32, 39, 0.5);
+  height: 30px;
+  width: 150px;
+  color: white;
+  border: 1px solid white;
+  outline:0;
+
+}
+
+#inputfield {
+  text-align: center;
+  outline:0;
+}
+
+.fa-plus {
+  color: white;
+  font-size: 12px;
+  padding-left: 10px;
 }

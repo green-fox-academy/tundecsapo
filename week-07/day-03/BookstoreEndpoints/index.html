@@ -7,13 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 </head>
 <body>
   <h1>Book titles</h1>
   <div class="buttons container">
-    <button id="titles">Book titles</button>
-    <button id="catalog">Catalog</button>
+    <button id="titles" class="button">Book titles</button>
+    <button id="catalog" class="button">Catalog</button>
   </div>
+  <div id="filter">
+    <div class="sorting">
+      <select class="inputs">
+        <option value="title">Title</option>
+        <option value="author">Author</option>
+        <option value="category">Category</option>
+        <option value="publisher">Publisher</option>
+        <option value="plt">Price lower than</option>
+        <option value="pgt">Price greater than</option>
+      </select>
+      <span><input class="inputs values" id="inputfield" type="text" name="text"></span>
+    </div>
+  </div>
+  <span><i class="fas fa-plus"></i></span>
+  <input id="send" class="btn button" type="submit" value="Send">
   <div class="booklist"></div>  
   <script src="/assets/bookstore.js"></script>
 </body>

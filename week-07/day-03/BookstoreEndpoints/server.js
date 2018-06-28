@@ -38,16 +38,56 @@ app.get('/api/books/titles', (req, res) => {
 });
 
 app.get('/api/books/catalog', (req, res) => {
-  let sqldata = 'SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast, author, category, publisher WHERE book_mast.aut_id = author.aut_id AND book_mast.cate_id = category.cate_id AND book_mast.pub_id = publisher.pub_id;';
-     
-  conn.query(sqldata, (err, rows) => {
+  let title = '';
+  let plt = '';
+  let pgt = '';
+  let author = 'WHERE book_mast.aut_id = author.aut_id';
+  let category = ' AND book_mast.cate_id = category.cate_id';
+  let publisher = ' AND book_mast.pub_id = publisher.pub_id';
+  let queryInputs = [];
+ 
+  console.log(req.query);
+  if (req.query.author) {
+    //if (queryInputs.length === 0) {  
+    //  author = `WHERE author.aut_name LIKE "${req.query.author}"`;
+    //} else {
+    author += ` AND author.aut_name LIKE "%${req.query.author}%"`;
+    //}
+    queryInputs.push(req.query.author);        
+  }
+  if (req.query.category) {  
+    category += ` AND category.cate_descrip LIKE "%${req.query.category}%"`;
+    queryInputs.push(req.query.category);    
+  }
+  if (req.query.publisher) {
+    publisher += ` AND publisher.pub_name LIKE "%${req.query.publisher}%"`;    
+    queryInputs.push(req.query.publisher);            
+  }
+  if (req.query.title) {
+    title = ` AND book_mast.book_name LIKE "%${req.query.title}%"`;
+    queryInputs.push(req.query.title);                
+  }
+  if (req.query.plt) {
+    plt = ` AND book_mast.book_price <= ${req.query.plt}`;       
+    queryInputs.push(req.query.plt);                
+  }
+  if (req.query.pgt) {
+    pgt = ` AND book_mast.book_price >= ${req.query.pgt}`;
+    queryInputs.push(req.query.pgt);                
+  }
+  console.log(queryInputs);
+  let sqldata = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast, author, category, publisher ${author}${category}${publisher}${title}${plt}${pgt};`;
+  console.log(sqldata);
+  queryInputs = [];
+  conn.query(sqldata, queryInputs, (err, books) => {
     if (err) {
       console.log(err);
       res.status(500).send();
       return;  
     }  
+    console.log(books);
     res.json({
-      books: rows,  
+      books,  
     });
   });
 });
