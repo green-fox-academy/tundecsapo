@@ -14,30 +14,55 @@ header, .selector {
 
 .feed {
   position: relative;  
-  background-color: white;
-  width: 600px;
-  height: 800px; 
+  width: 100%;
+  height: auto; 
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 
 .inputs {
- margin: 20px auto;
- background-color: white;
- color: rgb(34, 34, 34);
+  margin: 0 auto;
+  background-color: white;
+  color: rgb(34, 34, 34);
+  width: 100%;
+}
+
+.menu {
+  margin: 0 auto;
+  background-color: white;
+  color: rgb(34, 34, 34);
+  width: 200px;
+  height: 28px;
 }
 
 .titleInput {
   width: 100%; 
-  height: 30px; 
+  height: 20px; 
+  padding: 5px 0;
+  scroll-behavior: auto;
 }
 
 .descrInput {
   width: 100%;
-  height: 150px;
+  height: 90px;
+  padding: 5px 0;
 }
 
-img {
+img.logopic {
   height: 30px;
   width: auto;  
+}
+
+img.profsecpic {
+  height: 40px;
+  width: auto;  
+}
+
+h1 {
+  color: rgb(100, 100, 100);  
+  font-size: 14px;
+  margin: 10px 0 7px 20px;
 }
 
 .container {
@@ -51,12 +76,14 @@ img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;    
+  padding: 5px 10px;   
+  border-bottom: 1px solid rgb(218, 224, 230); 
 }
 
 .logo {
   position: relative;
   flex: 2;
+  padding: 0 10px;
 }
 
 .sorting {
@@ -69,6 +96,11 @@ img {
   flex: 5;
 }
 
+.searcher {
+  width: 400px;  
+  height: 24px;
+}
+
 .profilesec {
   position: relative;
   flex: 6;
@@ -78,7 +110,7 @@ img {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0 10px 10px 10px; 
+  padding: 10px 20px; 
   font-size: 12px;
   color: rgb(133, 133, 133);  
 }
@@ -88,12 +120,12 @@ img {
   width: 200px;
 }
 
-.main {
+.main {  
   flex-direction: row;
   align-items: flex-start;
-  padding: 0 10px; 
   font-size: 16px;
   margin: 0 0 0 20px;
+  width: 100%;
 }
 
 .mainCont {
@@ -101,9 +133,9 @@ img {
   flex: 8;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   width: 100%;
+  padding: 0 20px 0 0;
 }
 
 .fields {
@@ -111,10 +143,28 @@ img {
   width: 100%;  
 }
 
+.sendButt {
+  width: 100%; 
+  margin: 0 0 20px 0; 
+  background-color: rgb(0, 121, 210);
+  color: white;
+  border-style: none;
+  font-weight: 700;
+  padding: 9px 0;
+}
+
+.sendButt:hover {
+  background-color: rgb(33, 153, 240);
+}
+
+.sendButt:active {
+  background-color: rgb(61, 170, 248);
+  color: rgb(2, 61, 104);  
+}
+
 .sidebar {
   position: relative;
   flex: 3;
-  margin: 0 0 0 40px;
 }
 
 #sidebar {
@@ -123,6 +173,29 @@ img {
 }
 
 .post {
-  margin: 20px;
+  position: relative;
+  margin: 10px 0;
   padding: 10px;  
+  background-color: white;
+}
+
+.post:hover {
+  background-color: rgb(240, 240, 240);
+  color: rgb(33, 153, 240);
+}
+
+.title {
+  padding: 10px 0;   
+  border-bottom: 1px solid rgb(218, 224, 230);
+  color: rgb(100, 100, 100);  
+  font-size: 16px;
+}
+
+.title:hover {
+  color: rgb(33, 153, 240);
+}
+
+.url {
+  padding: 10px 0;   
+  font-size: 12px;
 }

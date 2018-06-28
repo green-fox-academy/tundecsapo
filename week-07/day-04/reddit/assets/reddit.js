@@ -1,16 +1,17 @@
 'use strict';
 
-let http = new XMLHttpRequest();
+//let http = new XMLHttpRequest();
 let feed = document.querySelector('.feed');
 let inputs = document.querySelectorAll('.inputs');
 
+/*
 http.open('GET', '/hello', true);
 http.onload = () => {
   const response = JSON.parse(http.responseText);
   const message = document.querySelector('.message');
   message.textContent = response.message;
 }
-http.send();  
+http.send(); */ 
 
 let http1 = new XMLHttpRequest();
 http1.open('GET', '/feed', true);

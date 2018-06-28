@@ -6,15 +6,16 @@
     <title>Reddit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css" />
+    <link rel="icon" type="img/ico" href="/static/favicon.png">
 </head>
 <body>
   <header>
     <div class='topmenu container'>
       <div class="logo">
-        <img src="/static/redditlogo.png" alt="Reddit logo">
+        <img class="logopic" src="/static/redditlogo.png" alt="Reddit logo">
       </div>
       <div class="sorting">
-        <select class="inputs">
+        <select class="menu">
           <option value="home">Home</option>
           <option value="popular">Popular</option>
           <option value="all">All</option>
@@ -27,19 +28,19 @@
       <div class='search'>
         <input class="searcher" type="text" name="search" placeholder="Search Reddit">
       </div>
-      <div class="profilesec"><img src="/static/profilsec.jpg" alt="Profile section placeholder" height="42" width="42"></div>
+      <div class="profilesec"><img class="profsecpic" src="/static/profilsec.jpg" alt="Profile section placeholder" height="42" width="42"></div>
     </div> 
   </header>
   <div class="selector container">
     <div class="sorters"><p>View</p></div>
     <div class="sorters"><p>Sort</p></div>
   </div>
-  <p class="message"></p>
+  <div><h1>Make post</h1></div>
   <div class="main container">
     <div class="mainCont">  
-      <div class="fields"><input class="inputs titleInput" type="text" name="text"></div>
-      <div class="fields"><input class="inputs descrInput" type="text" name="text"></div>
-      <div class="fields"><input class="btn button sendButt" type="submit" value="Send"></div>
+      <div class="fields"><input class="inputs titleInput" type="text" name="text" placeholder="Title"></div>
+      <div class="fields"><input class="inputs descrInput" type="text" name="text" placeholder="Your message goes here"></div>
+      <div class="fields"><input class="btn button sendButt" type="submit" value="SEND"></div>
       <div class="feed"></div>
     </div>
     <div class="sidebar">
