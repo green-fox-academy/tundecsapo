@@ -1,5 +1,8 @@
 'use strict';
 
+//NAMES WERE CHANGED IN THE DATABASE, AND CODE IS UNDER CONSTRUCTION
+//SO THE FEED AND POST DOESN'T WORK PROPERLY AT THE MOMENT
+
 //let http = new XMLHttpRequest();
 let feed = document.querySelector('.feed');
 let inputs = document.querySelectorAll('.inputs');

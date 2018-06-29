@@ -1,5 +1,8 @@
 'use strict';
 
+//NAMES WERE CHANGED IN THE DATABASE, AND CODE IS UNDER CONSTRUCTION
+//SO THE FEED AND POST DOESN'T WORK PROPERLY AT THE MOMENT
+
 require('dotenv').config();
 const express = require('express'); 
 const mysql = require('mysql');
@@ -48,29 +51,29 @@ app.get('/feed', (req, res) => {
 });
 
 app.post('/post', (req, res) => {
-    console.log(req.body.title);
-    //console.log('-----------');
-    //console.log(res);
-    if (!req.body.title  || !req.body.url || req.body.title === '') {
-      res.json({
-        "error": "Not enough data provided."
-      });  
-    } else {  
-      let insertSql = `INSERT INTO post (title, url) VALUES ('${req.body.title}', '${req.body.url}');`;
+  console.log(req.body.title);
+  //console.log('-----------');
+  //console.log(res);
+  if (!req.body.title  || !req.body.url || req.body.title === '') {
+    res.json({
+      "error": "Not enough data provided."
+    });  
+  } else {  
+    let insertSql = `INSERT INTO post (title, url) VALUES ('${req.body.title}', '${req.body.url}');`;
        
-      conn.query(insertSql, (err, insertion) => {
-        if (err) {
-          console.log(err);
-          res.status(500).send();
-          return;  
-        } 
-        res.json({
-          insertion,  
-        });  
+    conn.query(insertSql, (err, insertion) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      } 
+      res.json({
+        insertion,  
+      });  
             //res.sendStatus(200);
-      });
-    }    
-  });
+    });
+  }    
+});
 
 app.get('/post', (req, res) => {
   //console.log(req);  
@@ -92,81 +95,141 @@ app.get('/post', (req, res) => {
   });
 });
 
+app.post('/upvote', (req, res) => {
+  console.log(req.body);
+  if (!req.body.vote || !req.body.voter_id || !req.body.post_id) {
+    res.json({
+      "error": "Not enough data provided."
+    });  
+  } else {  
+    let upvoteSql = `INSERT INTO vote (vote, voter_id, post_id) VALUES (${req.body.vote}, ${req.body.voter_id}, ${req.body.post_id});`;
+      
+    conn.query(upvoteSql, (err, upvote) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      } 
+      res.json({
+        upvote,  
+      });  
+          //res.sendStatus(200);
+    });
+  }    
+});
 
+app.put('/upvote', (req, res) => {
+  console.log(`PUUUUUUUUUUUUUT${req.body.post_id}`);
+  if (!req.body.post_id) {
+    res.json({
+      "error": "Not enough data provided."
+    });  
+  } else {  
+    let sql = `UPDATE post INNER JOIN vote ON post.post_id = vote.post_id SET score = score + 1 WHERE post.post_id = ${req.body.post_id};`;
+       
+    conn.query(sql, (err, score) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      } 
+      res.json({
+        score,  
+      });  
+            //res.sendStatus(200);
+    });
+  }    
+});
+
+app.get('/upvote', (req, res) => {
+  //console.log(req);  
+  let sql = `SELECT post.post_id, post.title, post.url, post.timestamp, post.score, user.name, vote.vote FROM post, user, vote WHERE vote.post_id = ${req.query.post_id} AND post.post_id = ${req.query.post_id} AND post.owner_id = user.user_id AND vote.voter_id = ${req.query.voter_id};`;
+  console.log(sql);
+  console.log(req.post_id);
+
+  conn.query(sql, (err, post) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return;  
+    } 
+    console.log(post);
+  
+    res.json({
+      post,  
+    });  
+        //res.sendStatus(200);
+  });
+});
+
+app.post('/downvote', (req, res) => {
+  console.log(req.body);
+  if (!req.body.vote || !req.body.voter_id || !req.body.post_id) {
+    res.json({
+      "error": "Not enough data provided."
+    });  
+  } else {  
+    let downvoteSql = `INSERT INTO vote (vote, voter_id, post_id) VALUES (${req.body.vote}, ${req.body.voter_id}, ${req.body.post_id});`;
+        
+    conn.query(downvoteSql, (err, downvote) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      } 
+      res.json({
+        downvote,  
+      });  
+            //res.sendStatus(200);
+    });
+  }    
+});
+  
+app.put('/downvote', (req, res) => {
+  console.log(`PUUUUUUUUUUUUUT${req.body.post_id}`);
+  if (!req.body.post_id) {
+    res.json({
+      "error": "Not enough data provided."
+    });  
+  } else {  
+    let sql = `UPDATE post INNER JOIN vote ON post.post_id = vote.post_id SET score = score - 1 WHERE post.post_id = ${req.body.post_id};`;
+         
+    conn.query(sql, (err, score) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      } 
+      res.json({
+        score,  
+      });  
+              //res.sendStatus(200);
+    });
+  }    
+});
+  
+app.get('/downvote', (req, res) => {
+    //console.log(req);  
+  let sql = `SELECT post.post_id, post.title, post.url, post.timestamp, post.score, user.name, vote.vote FROM post, user, vote WHERE vote.post_id = ${req.query.post_id} AND post.post_id = ${req.query.post_id} AND post.owner_id = user.user_id AND vote.voter_id = ${req.query.voter_id};`;
+  console.log(sql);
+  console.log(req.post_id);
+  
+  conn.query(sql, (err, post) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return;  
+    } 
+    console.log(post);
+    
+    res.json({
+      post,  
+    });  
+          //res.sendStatus(200);
+  });
+});
   
 module.exports = app;
-
-/*
-app.get('/api/books/titles', (req, res) => {
-  let sql = 'SELECT book_name from book_mast;';
-   
-  conn.query(sql, (err, rows) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send();
-      return;  
-    }  
-    res.json({
-      books: rows,  
-    });
-  });
-});
-
-app.get('/api/books/catalog', (req, res) => {
-  let title = '';
-  let plt = '';
-  let pgt = '';
-  let author = 'WHERE book_mast.aut_id = author.aut_id';
-  let category = ' AND book_mast.cate_id = category.cate_id';
-  let publisher = ' AND book_mast.pub_id = publisher.pub_id';
-  let queryInputs = [];
- 
-  console.log(req.query);
-  if (req.query.author) {
-    //if (queryInputs.length === 0) {  
-    //  author = `WHERE author.aut_name LIKE "${req.query.author}"`;
-    //} else {
-    author += ` AND author.aut_name LIKE "%${req.query.author}%"`;
-    //}
-    queryInputs.push(req.query.author);        
-  }
-  if (req.query.category) {  
-    category += ` AND category.cate_descrip LIKE "%${req.query.category}%"`;
-    queryInputs.push(req.query.category);    
-  }
-  if (req.query.publisher) {
-    publisher += ` AND publisher.pub_name LIKE "%${req.query.publisher}%"`;    
-    queryInputs.push(req.query.publisher);            
-  }
-  if (req.query.title) {
-    title = ` AND book_mast.book_name LIKE "%${req.query.title}%"`;
-    queryInputs.push(req.query.title);                
-  }
-  if (req.query.plt) {
-    plt = ` AND book_mast.book_price <= ${req.query.plt}`;       
-    queryInputs.push(req.query.plt);                
-  }
-  if (req.query.pgt) {
-    pgt = ` AND book_mast.book_price >= ${req.query.pgt}`;
-    queryInputs.push(req.query.pgt);                
-  }
-  console.log(queryInputs);
-  let sqldata = `SELECT book_name, aut_name, cate_descrip, pub_name, book_price FROM book_mast, author, category, publisher ${author}${category}${publisher}${title}${plt}${pgt};`;
-  console.log(sqldata);
-  queryInputs = [];
-  conn.query(sqldata, queryInputs, (err, books) => {
-    if (err) {
-      console.log(err);
-      res.status(500).send();
-      return;  
-    }  
-    console.log(books);
-    res.json({
-      books,  
-    });
-  });
-});
-*/
 
 app.listen(PORT, () => {
   console.log(`The server is app and running on port ${PORT}`);  
