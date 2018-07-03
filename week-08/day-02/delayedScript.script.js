@@ -7,9 +7,17 @@ text.textContent = 'You clicked a button!'
 const button = document.querySelector('button');
 
 button.addEventListener('click', () => {
+  setTimeout(() => {
+    document.body.appendChild(text)  
+  }, 2000)  
+})
+
+//original solution
+/*  
+button.addEventListener('click', () => {
   setTimeout(() => showText(text), 2000)  
 })
 
 function showText(element) {
   document.body.appendChild(element);
-}
+}*/
