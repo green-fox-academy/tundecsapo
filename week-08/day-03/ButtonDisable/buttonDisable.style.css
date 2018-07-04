@@ -1,0 +1,44 @@
+* {
+ margin: 0;
+ padding: 0;  
+}
+
+body {
+  background-color: rgb(252, 144, 125);
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgb(88, 88, 88);  
+}
+
+.pet-form {
+  margin: 100px auto;
+  padding: 60px;
+  background-color: white;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.question {
+  margin: 30px;  
+}
+
+.answer {
+  padding-left: 15px;  
+}
+
+.buttons {
+  padding: 10px 35px;
+  background-color: tomato;
+  color: white;
+  border-style: none;
+  outline: none;  
+}
+
+.buttons:hover {
+  box-shadow: 2px 1px 1px rgb(122, 122, 122);
+}
+
+.buttons:disabled {
+  background-color: rgba(255, 99, 71, 0.7);
+  color: rgb(228, 228, 228);
+  box-shadow: none;
+}
