@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+body {
+  background-color: rgb(221, 221, 221);  
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(70, 70, 70);
+}
+
+.container {
+  display: flex;  
+}
+
+.signup {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 45%;
+  min-width: 350px;
+  height: auto;  
+  margin: 60px auto;
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px 1px rgb(150, 150, 150);
+  padding: 50px;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+.title {
+  position: relative;
+  flex: 1;
+  margin: 0 0 40px 0;
+}
+
+.panels {
+  position: relative;
+  flex: 5;
+}
+
+.signup-form {
+  position: relative;
+  flex: 3;
+}
+
+.middlePanel {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.orIcon {
+  background-color: rgb(221, 221, 221);
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 100px auto;
+  box-shadow: 2px 2px 4px rgb(180, 180, 180);
+  font-size: 18px;
+}
+
+.or {
+  margin: auto 0;
+  padding-top: 15px;
+}
+
+.social {
+  position: relative;
+  flex: 3;
+}
+
+.inputfields {
+  width: 100%;
+  padding: 8px 0;
+  border: none;
+  border-style: none;
+  outline: none;
+  border-bottom: 1px solid rgb(100, 100, 100); 
+  margin-bottom: 20px; 
+  font-size: 18px;
+}
+
+.inputfields:focus { 
+  border-bottom: 3px solid rgb(22, 160, 133); 
+}
+
+.signupButt {
+  background-color: rgb(22, 160, 133);
+  color: white;
+  font-weight: 700;
+  padding: 9px 25px;
+  border-style: none;
+  outline: none;
+  border-radius: 2px;
+  margin-top: 30px;   
+}
+
+.signupButt:hover {
+  background-color: rgb(37, 202, 169);
+}
+
+.socialButt {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  padding: 14px 0;
+  border-style: none;
+  outline: none;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.facebook {
+  background-color: rgb(50, 80, 142);
+  margin-top: 60px;
+}
+
+.facebook:hover {
+  background-color: rgb(70, 112, 196);
+}
+
+.twitter {
+  background-color: rgb(85, 172, 238);
+}
+
+.twitter:hover {
+  background-color: rgb(133, 200, 252);
+}
+
+.google {
+  background-color: rgb(221, 75, 57);
+}
+
+.google:hover {
+  background-color: rgb(248, 126, 109);
+}

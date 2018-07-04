@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Newsletter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="/static/newsletter.style.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+</head>
+<body>
+  <form method="POST" action="/signup" class="newsletter-form">  
+    <h1>Newsletter</h1>
+    <div class="section">
+      <label>
+        <span class="fieldname">Name:</span>
+        <input type="text" name="username" class="inputfield" required>    
+      </label>
+    </div>
+    <div class="section">
+      <label>
+        <span class="fieldname">Email:</span>
+        <input type="email" name="email" class="inputfield" required>    
+      </label>
+    </div>
+    <button type="submit">Send</button>
+    <div class="response"></div>  
+  </form>
+  <script>
+    const responseCont = document.querySelector('.response');
+    const message = document.createElement('p');  
+    document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = e.target.elements.username.value;
+      const email = e.target.elements.email.value;
+      const http = new XMLHttpRequest();
+      let params = `username=${username}&email=${email}`;
+      http.open('POST', '/signup', true);
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      http.onload = () => {
+        let response = JSON.parse(http.responseText);
+        message.textContent = response.message;
+        responseCont.appendChild(message);
+      }
+      http.send(params);
+    })
+  </script>
+</body>
+</html>

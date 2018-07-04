@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Sign Up Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="signupform.style.css" />
+</head>
+<body>
+  <div class="signup container">
+    <div class="title"><h1>Sign up</h1></div>
+    <div class="panels container">  
+      <div class="signup-form">
+        <form>
+          <label>
+            <input type="text" class="username inputfields" name="username" placeholder="Username" autofocus required>  
+          </label>
+          <label>
+            <input type="email" class="email inputfields" name="email" placeholder="E-mail" required>  
+          </label>
+          <label>
+            <input type="password" class="password inputfields" name="password" placeholder="Password" required>  
+          </label>
+          <label>
+            <input type="password" class="password inputfields" name="passwordConfirmation" placeholder="Retype password" required>  
+          </label>
+          <button type="submit" class="signupButt">SIGN ME UP</button>
+        </form>
+      </div> 
+      <div class="middlePanel container"><div class="orIcon"><div class="or">OR</div></div></div>
+      <div class="social">
+        <button class="facebook socialButt">Log in with facebook</button>  
+        <button class="twitter socialButt">Log in with Twitter</button>  
+        <button class="google socialButt">Log in with Google+</button>  
+      </div>
+    </div>
+  </div> 
+  <script src="signupform.script.js"></script>  
+</body>
+</html>
