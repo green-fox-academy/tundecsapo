@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="login.style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+</head>
+<body>
+  <form class="login-form">
+    <h1>ACCOUNT LOGIN</h1>
+    <div class="labels">
+      <label>
+        <span class="fieldname">USERNAME</span>
+        <br>    
+        <input type="email" name="username" class="inputfield" id="user" autofocus required>
+      </label>
+    </div>
+    <div class="labels">
+      <label>
+        <span class="fieldname">PASSWORD</span>
+        <br>        
+        <input type="password" name="password" class="inputfield" minlength="4" required>
+      </label>
+      <p>Forgot password?</p>   
+    </div>  
+    <button type="submit" class="submitbutt">Login</button>
+  </form>  
+  <script src="login.script.js"></script>  
+</body>
+</html>
