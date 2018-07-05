@@ -14,13 +14,13 @@
     <div class="section">
       <label>
         <span class="fieldname">Name:</span>
-        <input type="text" name="username" class="inputfield" required>    
+        <input type="text" name="username" class="inputfield namefield" required>    
       </label>
     </div>
     <div class="section">
       <label>
         <span class="fieldname">Email:</span>
-        <input type="email" name="email" class="inputfield" required>    
+        <input type="email" name="email" class="inputfield emailfield" required>    
       </label>
     </div>
     <button type="submit">Send</button>
@@ -43,6 +43,12 @@
         responseCont.appendChild(message);
       }
       http.send(params);
+      const namefield = document.querySelector('.namefield');
+      const emailfield = document.querySelector('.emailfield');
+      namefield.textContent = '';
+      namefield.value = '';
+      emailfield.textContent = '';
+      emailfield.value = '';
     })
   </script>
 </body>
