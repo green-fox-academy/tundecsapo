@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css" />
     <link rel="icon" type="img/ico" href="/static/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -31,9 +32,13 @@
       <div class="profilesec"><img class="profsecpic" src="/static/profilsec.jpg" alt="Profile section placeholder" height="42" width="42"></div>
     </div> 
   </header>
+  <div class="headerpicCont">
+      <div><img src="/static/fox.jpg"><span>Green Fox Academy</span></div>
+      <div class="postheader"><span>Posts</span></div>
+  </div>
   <div class="selector container">
-    <div class="sorters"><p>View</p></div>
-    <div class="sorters"><p>Sort</p></div>
+    <div class="sorters"><p>VIEW</p></div>
+    <div class="sorters"><p>SORT</p></div>
   </div>
   <div><h1>Make post</h1></div>
   <div class="main container">
@@ -44,7 +49,22 @@
       <div class="feed"></div>
     </div>
     <div class="sidebar">
-      <img id="sidebar" src="/static/sidebar.jpg" alt="Placeholder sidebar">
+      <button class="createpost">SUBMIT A NEW POST</button>
+      <div>
+        <div class="sidehead">ABOUT <a href="/">r/greenfox</a></div>
+          <div class="list">
+            <p>Share and discuss informative content on:</p>
+            <br>
+            <ul>
+              <li>Everyday life in Green Fox</li>
+              <li>Events</li>
+              <li>Javascript</li>
+              <li>Java</li>
+              <li>C#</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <script src="/assets/reddit.js"></script>
