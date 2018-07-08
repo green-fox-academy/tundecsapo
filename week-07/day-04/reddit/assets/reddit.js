@@ -1,9 +1,5 @@
 'use strict';
 
-//NAMES WERE CHANGED IN THE DATABASE, AND CODE IS UNDER CONSTRUCTION
-//SO THE FEED AND POST DOESN'T WORK PROPERLY AT THE MOMENT
-
-//let http = new XMLHttpRequest();
 let feed = document.querySelector('.feed');
 let inputs = document.querySelectorAll('.inputs');
 
@@ -18,8 +14,8 @@ http.onload = () => {
 http.send(); */ 
 
 function creatingElements(posts) {
-    feed.textContent = '';
-for (let i = 0; i < posts.length; i++) {
+  feed.textContent = '';
+  for (let i = 0; i < posts.length; i++) {
     let post = document.createElement('div');
     post.classList.add('post');
     let voter = document.createElement('div');
@@ -48,14 +44,11 @@ for (let i = 0; i < posts.length; i++) {
     uplink.addEventListener('click', (e) => {
       e.preventDefault();
       let post = posts[i];
-      console.log(post);
       upvoting(post, voteCount, upvoteimg);   
     })
     downlink.addEventListener('click', (e) => {
       e.preventDefault();
       let post = posts[i];
-      console.log(post);
-
       downvoting(post, voteCount, downvoteimg);   
     })
     uplink.appendChild(upvoteimg);
@@ -78,7 +71,7 @@ for (let i = 0; i < posts.length; i++) {
       let modifier = document.createElement('span');
       let modLink = document.createElement('a');
       modLink.classList.add('modifier');
-      modLink.setAttribute('href', "/modify");
+      modLink.setAttribute('href', `/modify?post_id=${posts[i].post_id}`);
       modLink.textContent = 'Modify';
       modifier.appendChild(modLink);
       let remover = document.createElement('span');
@@ -92,7 +85,6 @@ for (let i = 0; i < posts.length; i++) {
       remover.addEventListener('click', (e) => {
         e.preventDefault();  
         let post = posts[i];
-        console.log(post);
         removing(post);   
       })
     } 
@@ -103,13 +95,11 @@ for (let i = 0; i < posts.length; i++) {
     post.appendChild(postCont);
     feed.appendChild(post);
   }
-  //pageLoad();
 }
 
 function upvoting(post, voteCount, upvoteimg) {
   let vote = 0;
   let scoreChanger = ''; 
-  console.log(post.vote);
   if (post.vote === '-1' || post.vote === -1) {
     vote = 1;
     scoreChanger = '2'; 
@@ -121,38 +111,31 @@ function upvoting(post, voteCount, upvoteimg) {
     scoreChanger = 'min1';    
   }
   let params = `vote=${vote}&voter_id=1&post_id=${post.post_id}`;
-  let http1 = new XMLHttpRequest();
-  http1.open('POST', '/upvote', false);
-  http1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  http1.onreadystatechange = function() {}
-  http1.send(params); 
-  console.log(params);
-  let http2 = new XMLHttpRequest();
+  let upvotePostReq = new XMLHttpRequest();
+  upvotePostReq.open('POST', '/upvote', false);
+  upvotePostReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  upvotePostReq.onreadystatechange = function() {};
+  upvotePostReq.send(params); 
+  let upvotePutReq = new XMLHttpRequest();
   let putparam = `post_id=${post.post_id}&scoreChanger=${scoreChanger}`;
-  console.log(scoreChanger);
-  http2.open('PUT', '/upvote', false);
-  http2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  http2.onload = function () {}
-  console.log(scoreChanger);
-  console.log(putparam);
-  http2.send(putparam); 
+  upvotePutReq.open('PUT', '/upvote', false);
+  upvotePutReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  upvotePutReq.onload = function () {};
+  upvotePutReq.send(putparam); 
   let getparam = `?post_id=${post.post_id}&voter_id=1`;
-  let http4 = new XMLHttpRequest();
-  http4.open('GET', `/upvote${getparam}`, false);
-  http4.onload = () => {
-  const response = JSON.parse(http4.responseText);
-  console.log(response);
-  voteCount.textContent = response.score;
-  pageLoad();
-  //message.textContent = response.message;
+  let upvoteGetReq = new XMLHttpRequest();
+  upvoteGetReq.open('GET', `/upvote${getparam}`, false);
+  upvoteGetReq.onload = () => {
+    const response = JSON.parse(upvoteGetReq.responseText);
+    voteCount.textContent = response.score;
+    pageLoad();
   }
-  http4.send();
+  upvoteGetReq.send();
 }
 
 function downvoting(post, voteCount, downvoteimg) {
   let vote = 0;
   let scoreChanger = ''; 
-  console.log(post.vote);
   if (post.vote === '-1' || post.vote === -1) {
     vote = 0;
     scoreChanger = '1'; 
@@ -164,83 +147,47 @@ function downvoting(post, voteCount, downvoteimg) {
     scoreChanger = 'min2';    
   }
   let params = `vote=${vote}&voter_id=1&post_id=${post.post_id}`;
-  let http1 = new XMLHttpRequest();
-  http1.open('POST', '/downvote', false);
-  http1.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  http1.onreadystatechange = function() {}
-  http1.send(params); 
-  let http2 = new XMLHttpRequest();
+  let downvotePostReq = new XMLHttpRequest();
+  downvotePostReq.open('POST', '/downvote', false);
+  downvotePostReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  downvotePostReq.onreadystatechange = function() {};
+  downvotePostReq.send(params); 
+  let downvotePutReq = new XMLHttpRequest();
   let putparam = `post_id=${post.post_id}&scoreChanger=${scoreChanger}`;
-  http2.open('PUT', '/downvote', false);
-  http2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-  http2.onload = function () {}
-  http2.send(putparam); 
+  downvotePutReq.open('PUT', '/downvote', false);
+  downvotePutReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  downvotePutReq.onload = function () {};
+  downvotePutReq.send(putparam); 
   let getparam = `?post_id=${post.post_id}&voter_id=1`;
-  let http4 = new XMLHttpRequest();
-  http4.open('GET', `/downvote${getparam}`, false);
-  http4.onload = () => {
-  const response = JSON.parse(http4.responseText);
-  console.log(response.score);
-  voteCount.textContent = response.score;
-  pageLoad();
-  //message.textContent = response.message;
+  let downvoteGetReq = new XMLHttpRequest();
+  downvoteGetReq.open('GET', `/downvote${getparam}`, false);
+  downvoteGetReq.onload = () => {
+    const response = JSON.parse(downvoteGetReq.responseText);
+    voteCount.textContent = response.score;
+    pageLoad();
   }
-  http4.send();
+  downvoteGetReq.send();
 }
 
 function pageLoad() {
-let http1 = new XMLHttpRequest();
-http1.open('GET', '/feed', false);
-http1.onload = () => {
-  const response = JSON.parse(http1.responseText);
-  console.log('THIS IS THE RESPONSE' + response.posts[0].vote);
+let feedReq = new XMLHttpRequest();
+feedReq.open('GET', '/feed', false);
+feedReq.onload = () => {
+  const response = JSON.parse(feedReq.responseText);
   creatingElements(response.posts);
-  //message.textContent = response.message;
 }
-http1.send();
+feedReq.send();
 }  
 
 function removing(post) {
-    console.log(post.post_id);
-    let httpreq = new XMLHttpRequest();
-    httpreq.open('DELETE', `/remove/${post.post_id}`);
-    httpreq.send();
-    feed.textContent = '';
-    pageLoad();
-
+  let deleteReq = new XMLHttpRequest();
+  deleteReq.open('DELETE', `/remove/${post.post_id}`);
+  deleteReq.send();
+  feed.textContent = '';
+  pageLoad();
 }
 
-const send = document.querySelector('.sendButt');
-send.addEventListener('click', () => {
-  let post = {};
-  post.title = inputs[0].value;
-  post.descr = inputs[1].value;    
-  let http3 = new XMLHttpRequest();
-  let params = `title=${post.title}&url=${post.descr}`;
-  console.log(params);
-  http3.open('POST', `/post`, false);
-    
-    //Send the proper header information along with the request
-  http3.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    
-  http3.onreadystatechange = function() {//Call a function when the state changes.
-    //if (http3.readyState == 4 && http3.status == 200) {
-    //  alert(http3.responseText);
-    //}
-  }
-  http3.send(params);
-
-  let http2 = new XMLHttpRequest();
-  console.log(post);
-  http2.open('GET', `/post?title=${post.title}&url=${post.descr}`, false);
-  http2.onload = () => {
-    const response = JSON.parse(http2.responseText);
-    console.log(response);
-    feed.textContent = '';
-    console.log(response.posts);
-    pageLoad();
-  //message.textContent = response.message;
-
-  }
-  http2.send();
+const newPost = document.querySelector('.createpost');
+newPost.addEventListener('click', () => {
+  window.location = "http://localhost:3000/newpost";
 })

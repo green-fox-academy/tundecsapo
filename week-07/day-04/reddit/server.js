@@ -1,8 +1,5 @@
 'use strict';
 
-//NAMES WERE CHANGED IN THE DATABASE, AND CODE IS UNDER CONSTRUCTION
-//SO THE FEED AND POST DOESN'T WORK PROPERLY AT THE MOMENT
-
 require('dotenv').config();
 const express = require('express'); 
 const mysql = require('mysql');
@@ -12,11 +9,9 @@ const PORT = 3000;
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use('/static', express.static('static')); 
 app.use('/assets', express.static('assets'));
 app.use(express.json());
-
 
 const conn = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -46,13 +41,11 @@ app.get('/feed', (req, res) => {
       posts,  
     });  
     //res.sendStatus(200);
-
   });
 });
 
 app.post('/post', (req, res) => {
- // console.log(req.body.title);
-  if (!req.body.title  || !req.body.url || req.body.title === '') {
+  if (!req.body.title  || req.body.title === '') {
     res.json({
       "error": "Not enough data provided."
     });  
@@ -68,41 +61,34 @@ app.post('/post', (req, res) => {
       res.json({
         insertion,  
       });  
-            //res.sendStatus(200);
+      //res.sendStatus(200);
     });
   }    
 });
 
 app.get('/post', (req, res) => {
-  //console.log(req);  
-  console.log(`yayyy${req.query.title}${req.query.url}`);
   let sql = `SELECT * FROM ( SELECT post.post_id, post.title, post.url, post.timestamp, post.score, MAX(vote.vote_id) as lastvote FROM post LEFT JOIN vote ON post.post_id = vote.vpost_id GROUP BY post.post_id ) as this LEFT JOIN vote ON this.lastvote = vote.vote_id WHERE this.title = "${req.query.title}";`;
-  //let sql = `SELECT * FROM post WHERE title = "${req.query.title}";`;
-  console.log(sql);
   conn.query(sql, (err, posts) => {
     if (err) {
       console.log(err);
       res.status(500).send();
       return;  
     } 
-    console.log(posts);
-
     res.json({
       posts,  
     });  
-      //res.sendStatus(200);
+    //res.sendStatus(200);
   });
 });
 
 app.post('/upvote', (req, res) => {
-  console.log(req.body);
   if (!req.body.vote || !req.body.voter_id || !req.body.post_id) {
     res.json({
       "error": "Not enough data provided."
     });  
   } else {  
     let upvoteSql = `INSERT INTO vote (vote, voter_id, vpost_id) VALUES (${req.body.vote}, ${req.body.voter_id}, ${req.body.post_id});`;
-      
+     
     conn.query(upvoteSql, (err, upvote) => {
       if (err) {
         console.log(err);
@@ -112,13 +98,12 @@ app.post('/upvote', (req, res) => {
       res.json({
         upvote,  
       });  
-          //res.sendStatus(200);
+      //res.sendStatus(200);
     });
   }    
 });
 
 app.put('/upvote', (req, res) => {
-  console.log(`PUUUUUUUUUUUUUT${req.body.post_id}`);
   if (!req.body.post_id || !req.body.scoreChanger) {
     res.json({
       "error": "Not enough data provided."
@@ -132,7 +117,6 @@ app.put('/upvote', (req, res) => {
     } else if (req.body.scoreChanger === 'min1') {
       scoreChanger = '- 1';  
     }    
-    console.log(req.body.scoreChanger);  
     let sql = `UPDATE post INNER JOIN vote ON post.post_id = vote.vpost_id SET score = score ${scoreChanger} WHERE post.post_id = ${req.body.post_id};`;
        
     conn.query(sql, (err, score) => {
@@ -144,18 +128,13 @@ app.put('/upvote', (req, res) => {
       res.json({
         score,  
       });  
-      console.log(score);
-            //res.sendStatus(200);
+      //res.sendStatus(200);
     });
   }    
 });
 
 app.get('/upvote', (req, res) => {
-  //console.log(req); 
   let sql = `SELECT * FROM ( SELECT post.post_id, post.title, post.url, post.timestamp, post.score, MAX(vote.vote_id) as lastvote FROM post LEFT JOIN vote ON post.post_id = vote.vpost_id GROUP BY post.post_id ) as this LEFT JOIN vote ON this.lastvote = vote.vote_id WHERE this.post_id = ${req.query.post_id};`; 
-  //let sql = `SELECT post.post_id, post.title, post.url, post.timestamp, post.score, user.name, vote.vote FROM post, user, vote WHERE vote.vpost_id = ${req.query.post_id} AND post.post_id = ${req.query.post_id} AND post.owner_id = user.user_id AND vote.voter_id = ${req.query.voter_id};`;
-  console.log(sql);
-  console.log(req.query);
 
   conn.query(sql, (err, post) => {
     if (err) {
@@ -164,16 +143,14 @@ app.get('/upvote', (req, res) => {
       return;  
     } 
     let score = post[0].score;
-  
     res.json({
       score,  
     });  
-        //res.sendStatus(200);
+    //res.sendStatus(200);
   });
 });
 
 app.post('/downvote', (req, res) => {
-  console.log(req.body);
   if (!req.body.vote || !req.body.voter_id || !req.body.post_id) {
     res.json({
       "error": "Not enough data provided."
@@ -190,13 +167,12 @@ app.post('/downvote', (req, res) => {
       res.json({
         downvote,  
       });  
-            //res.sendStatus(200);
+      //res.sendStatus(200);
     });
   }    
 });
   
 app.put('/downvote', (req, res) => {
-  console.log(`PUUUUUUUUUUUUUT${req.body.post_id}`);
   if (!req.body.post_id || !req.body.scoreChanger) {
     res.json({
       "error": "Not enough data provided."
@@ -210,7 +186,6 @@ app.put('/downvote', (req, res) => {
     } else if (req.body.scoreChanger === 'min2') {
       scoreChanger = '- 2';  
     }    
-    console.log(req.body.scoreChanger);       
     let sql = `UPDATE post INNER JOIN vote ON post.post_id = vote.vpost_id SET score = score ${scoreChanger} WHERE post.post_id = ${req.body.post_id};`;
          
     conn.query(sql, (err, score) => {
@@ -222,18 +197,14 @@ app.put('/downvote', (req, res) => {
       res.json({
         score,  
       });  
-              //res.sendStatus(200);
+      //res.sendStatus(200);
     });
   }    
 });
   
 app.get('/downvote', (req, res) => {
-    //console.log(req);  
   let sql = `SELECT * FROM ( SELECT post.post_id, post.title, post.url, post.timestamp, post.score, MAX(vote.vote_id) as lastvote FROM post LEFT JOIN vote ON post.post_id = vote.vpost_id GROUP BY post.post_id ) as this LEFT JOIN vote ON this.lastvote = vote.vote_id WHERE this.post_id = ${req.query.post_id};`; 
-  //let sql = `SELECT post.post_id, post.title, post.url, post.timestamp, post.score, user.name, vote.vote FROM post, user, vote WHERE vote.vpost_id = ${req.query.post_id} AND post.post_id = ${req.query.post_id} AND post.owner_id = user.user_id AND vote.voter_id = ${req.query.voter_id};`;
-  console.log(sql);
-  console.log(req.post_id);
-  
+ 
   conn.query(sql, (err, post) => {
     if (err) {
       console.log(err);
@@ -245,26 +216,70 @@ app.get('/downvote', (req, res) => {
     res.json({
       score,  
     });  
-          //res.sendStatus(200);
+    //res.sendStatus(200);
   });
 });
 
 app.delete('/remove/:id', function(req, res) {
-    let sql = `DELETE FROM post WHERE post.post_id = ${req.params.id};`; 
+  let sql = `DELETE FROM post WHERE post.post_id = ${req.params.id};`; 
 
+  conn.query(sql, (err, post) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return;  
+    }         
+    res.json({
+      message: `Post with ${req.params.id} is deleted!`,  
+    });  
+    //res.sendStatus(200);
+  });
+});
+
+let modnum = undefined;
+
+app.get('/modify', (req, res) => {
+  if (req.query.post_id === undefined) {
+    let sql = `SELECT * FROM post WHERE post_id = ${modnum};`; 
+   
     conn.query(sql, (err, post) => {
-            if (err) {
-              console.log(err);
-              res.status(500).send();
-              return;  
-            }         
-            res.json({
-              message: `Post with ${req.params.id} is deleted!`,  
-            });  
-                  //res.sendStatus(200);
-          });
-    });
-  
+      if (err) {
+        console.log(err);
+        res.status(500).send();
+        return;  
+      }   
+      const response = post[0];
+      res.send({
+        response,  
+      });  
+      //res.sendStatus(200);
+    });   
+  } else if (req.query.post_id !== undefined) {
+    res.sendFile(path.join(__dirname, './modify.html'));
+    modnum = req.query.post_id;
+  }
+});
+
+app.put('/modify', (req, res) => {
+  let sql = `UPDATE post SET title = '${req.body.title}', url = '${req.body.url}' WHERE post_id = ${req.body.post_id};`;
+         
+  conn.query(sql, (err, update) => {
+    if (err) {
+      console.log(err);
+      res.status(500).send();
+      return;  
+    } 
+    res.json({
+      update,  
+    });  
+    //res.sendStatus(200);
+  });
+});
+
+app.get('/newpost', (req, res) => {
+  res.sendFile(path.join(__dirname, './newpost.html'));
+});
+
 module.exports = app;
 
 app.listen(PORT, () => {

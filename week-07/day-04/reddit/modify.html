@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Reddit</title>
+  <title>Reddit - Modify</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="/static/style.css" />
   <link rel="icon" type="img/ico" href="/static/favicon.png">
@@ -13,7 +13,7 @@
   <header>
     <div class='topmenu container'>
       <div class="logo">
-        <a href="#"><img class="logopic" src="/static/redditlogo.png" alt="Reddit logo"></a>
+        <a href="http://localhost:3000/"><img class="logopic" src="/static/redditlogo.png" alt="Reddit logo"></a>        
       </div>
       <div class="sorting">
         <select class="menu">
@@ -33,19 +33,25 @@
     </div> 
   </header>
   <div class="headerpicCont">
-      <div class="pageTitle"><a href="#"><img src="/static/fox.jpg"><p>Green Fox Academy</p></a></div>
+      <div class="pageTitle"><a href="http://localhost:3000/"><img src="/static/fox.jpg"><p>Green Fox Academy</p></a></div>
       <div class="postheader"><span>Posts</span></div>
   </div>
   <div class="selector container">
     <div class="sorters"><p>VIEW</p></div>
     <div class="sorters"><p>SORT</p></div>
   </div>
+  <div><h1>Modify your post</h1></div>
   <div class="main container">
-    <div class="mainCont">  
-      <div class="feed"></div>
+    <div class="mainCont"> 
+      <form class="posting">  
+        <div class="fields"><input class="inputs titleInput" type="text" name="text" placeholder="Title" required></div>
+        <div class="fields"><input class="inputs descrInput" type="text" name="text" placeholder="Your message goes here"></div>
+        <div class="fields"><input class="btn button sendButt" type="submit" value="SEND"></div>
+      </form>
     </div>
     <div class="sidebar">
       <button class="createpost" href="/newpost">SUBMIT A NEW POST</button>
+      <div>
         <div class="sidehead">ABOUT <a href="/">r/greenfox</a></div>
           <div class="list">
             <p>Share and discuss informative content on:</p>
@@ -59,8 +65,9 @@
             </ul>
           </div>
         </div>
+      </div>
     </div>
   </div>
-  <script src="/assets/reddit.js"></script>
+  <script src="/assets/reddit_modifier.js"></script>
 </body>
 </html>
