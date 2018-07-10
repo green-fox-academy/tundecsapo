@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;  
+}
+
+html, body {
+  height: 100%;
+}
+
+div {
+  text-align: center;
+  line-height: 100%;  
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: repeat(6, 1fr) / repeat(7, 1fr);
+  grid-gap: 1px;
+  background-color: black;
+}
+
+.yellow {
+  background-color: yellow;
+  border: 1px solid black;  
+  font-size: 20px;
+}
+
+.green {
+  grid-area: 2 / 2 / 6 / 7;
+  background-color: rgb(49, 207, 49);  
+  -moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;
+  display: grid;
+  grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+  padding: 20px;
+}
+
+.cards {
+  background-color: blueviolet;
+  grid-area: 2 / 2 / 4 / 3;
+  color: white;
+  font-size: 20px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+}
+
+.text {
+  -webkit-transform: rotate(-45deg);	
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
