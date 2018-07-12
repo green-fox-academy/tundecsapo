@@ -1,0 +1,75 @@
+* {
+  margin : 0;
+  padding: 0;  
+}
+
+body {
+  background-color: rgb(146, 168, 190);
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+}
+
+h1 {
+  font-size: 26px;
+  margin-top: 45px;
+}
+
+.card {
+  margin: 15px auto;  
+  background-color: white;
+  border-radius: 7px;
+  width: 400px;
+  padding: 40px;
+}
+
+.question {
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.button {
+  width: 270px;
+  height: 45px;
+  background-color: rgb(52, 152, 219);
+  color: white;
+  font-size: 14px;
+  border-style: none;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.button:hover {
+  background-color: rgb(72, 177, 247);
+}
+
+.button:disabled {
+  pointer-events: none;
+}
+
+.right:focus {
+  background-color: rgb(39, 174, 96);
+}
+
+.right:disabled {
+  background-color: rgb(39, 174, 96);
+}
+
+.wrong:focus {
+  background-color: rgb(201, 40, 19);
+}
+
+.wrong:disabled {
+  background-color: rgb(201, 40, 19);
+}
+
+.button:active {
+  background-color: rgb(25, 87, 129);
+  box-shadow: 1px 1px 3px 0px black;
+}
+
+.manage {
+  margin-top: 40px; 
+  color: rgb(33, 105, 153); 
+  text-shadow: black;
+}
