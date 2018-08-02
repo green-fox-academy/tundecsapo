@@ -1,0 +1,69 @@
+/*.App {
+  text-align: center;
+}*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #22c1c3;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fdbb2d, #22c1c3);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fdbb2d, #22c1c3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+}
+
+.heading h1 {
+  margin: 60px auto 30px auto;  
+  font-size: 24px; 
+  color: white; 
+}
+
+.tileCont {
+  display: grid; 
+  grid-template-columns: 33.3% 33.3% 33.3%; 
+  grid-template-rows: 33.3% 33.3% 33.3%; 
+  grid-gap: 10px;
+  margin: 30px auto;
+  height: 700px;
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.308); 
+  border-radius: 5px;
+  text-align: left;
+}
+
+.tile {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;  
+  margin: 20px;
+  background-color:  rgba(255, 255, 255, 0.829); 
+  border-radius: 5px;
+}
+
+.picDesc {
+  position: relative;  
+  font-size: 14px;
+  align-items: center;
+  overflow-y: auto;
+  flex: 4;
+}
+
+.beerImg {
+  display: block;  
+  margin-left: auto;
+  margin-right: auto;  
+  height: 120px;
+  width: auto;
+}
+
+.beerName {
+  padding-top: 15px;  
+  position: relative;
+  flex: 1;
+}
+
+
+
